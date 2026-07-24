@@ -4,7 +4,7 @@ _base_ = ["../sonata/pretrain-sonata-v1m2-0-uni-teacher-head.py"]
 # Override model to use VGC masking
 model = dict(
     _delete_=True,
-    type="Sonata-v1m2",
+    type="Sonata-v1m2-vgc",
     backbone=dict(
         type="PT-v3m2",
         in_channels=9,

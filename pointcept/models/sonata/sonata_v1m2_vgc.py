@@ -73,8 +73,8 @@ class OnlineCluster(nn.Module):
         return similarity
 
 
-@MODELS.register_module("Sonata-v1m2")
-class Sonata(PointModel):
+@MODELS.register_module("Sonata-v1m2-vgc")
+class SonataVGC(PointModel):
     def __init__(
         self,
         backbone,

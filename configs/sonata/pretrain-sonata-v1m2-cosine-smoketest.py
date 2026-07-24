@@ -9,7 +9,7 @@ enable_wandb = False
 
 model = dict(
     _delete_=True,
-    type="Sonata-v1m2",
+    type="Sonata-v1m2-vgc",
     backbone=dict(
         type="PT-v3m2",
         in_channels=9,
