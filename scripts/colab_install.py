@@ -25,11 +25,18 @@ print("Installing Python dependencies...")
 run("pip install -q ninja h5py addict pyyaml tensorboard timm peft tqdm")
 run("pip install -q torch-cluster torch-scatter -f https://data.pyg.org/whl/torch-2.5.0+cu124.html")
 
+# Build dependencies for CUDA extensions
+print("Installing build tools...")
+run("pip install -q setuptools wheel")
+# Point CUDA to system CUDA toolkit (Colab has /usr/local/cuda)
+os.environ["CUDA_HOME"] = "/usr/local/cuda"
+os.environ["PATH"] = "/usr/local/cuda/bin:" + os.environ.get("PATH", "")
+
 # Compile CUDA extensions
 print("Compiling CUDA extensions (pointops, pointops2, pointgroup_ops)...")
 for lib in ["pointops", "pointops2", "pointgroup_ops"]:
     print(f"  {lib}...")
-    run(f"pip install -q ./libs/{lib} --no-build-isolation")
+    run(f"CUDA_HOME=/usr/local/cuda pip install -e ./libs/{lib}")
 
 # Verify
 print("\nVerification:")
