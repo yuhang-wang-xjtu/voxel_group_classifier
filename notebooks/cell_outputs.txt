@@ -1,0 +1,36 @@
+=== Cell 1 (exec 4) ===
+✨🍰✨ Everything looks OK!
+/content
+Cloning into '/content/voxel_group_classifier'...
+remote: Enumerating objects: 720, done.[K
+remote: Counting objects: 100% (720/720), done.[K
+remote: Compressing objects: 100% (369/369), done.[K
+remote: Total 720 (delta 336), reused 716 (delta 336), pack-reused 0 (from 0)[K
+Receiving objects: 100% (720/720), 4.73 MiB | 9.37 MiB/s, done.
+Resolving deltas: 100% (336/336), done.
+/content/voxel_group_classifier
+
+Remove all packages in environment /usr/local/envs/pointcept-torch2.5.0-cu12.4:
+
+
+## Package Plan ##
+
+  environment location: /usr/local/envs/pointcept-torch2.5.0-cu12.4
+
+
+The following packages will be REMOVED:
+
+  _openmp_mutex-4.5-20_gnu
+  _python_abi3_support-1.0-hd8ed1ab_3
+  absl-py-2.5.0-pyhd8ed1ab_0
+  accelerate-1.14.0-pyhcf101f3_0
+  addict-2
+
+=== Cell 2 (exec 1) ===
+Current Python executable: /usr/bin/python3.real
+Current Python version: 3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]
+Current CONDA_PREFIX: Not set
+Error: spconv module not found. The 'Sonata (Python 3.10)' kernel might not be active.
+Please ensure you have restarted the runtime and selected 'Sonata (Python 3.10)' from Runtime → Change runtime type.
+
+
