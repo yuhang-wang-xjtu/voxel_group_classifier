@@ -35,6 +35,7 @@ dependencies:
   - tqdm
   - matplotlib
   - black
+  - yapf
   - open3d
   - peft
   - pip:
