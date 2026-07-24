@@ -30,7 +30,7 @@ for h5_path in h5_files:
     fname = os.path.basename(h5_path).replace(".h5", "")
     area_idx = int(fname.split("_")[-1])
     room_dir = os.path.join(OUT_ROOT, f"Area_{area_idx}", fname)
-    if os.path.exists(os.path.join(room_dir, "coord.npy")):
+    if os.path.exists(os.path.join(room_dir, "normal.npy")):
         continue  # already converted
 
     os.makedirs(room_dir, exist_ok=True)
@@ -40,6 +40,7 @@ for h5_path in h5_files:
 
     np.save(os.path.join(room_dir, "coord.npy"), data[..., :3].reshape(-1, 3).astype(np.float32))
     np.save(os.path.join(room_dir, "color.npy"), data[..., 3:6].reshape(-1, 3).astype(np.uint8))
+    np.save(os.path.join(room_dir, "normal.npy"), data[..., 6:9].reshape(-1, 3).astype(np.float32))
     np.save(os.path.join(room_dir, "segment.npy"), labels.reshape(-1, 1).astype(np.int16))
     np.save(os.path.join(room_dir, "instance.npy"), np.zeros_like(labels.reshape(-1, 1), dtype=np.int16))
 
