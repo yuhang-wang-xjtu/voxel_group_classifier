@@ -1,8 +1,8 @@
 """
 Colab Cell 4: Train Sonata with specified masking mode.
-Runs INSIDE conda env 'pointcept' (via 'conda run -n pointcept').
+Runs INSIDE conda env 'pointcept-torch2.5.0-cu12.4'.
 """
-import subprocess, sys
+import subprocess, sys, os
 
 BASE = "/content/voxel_group_classifier"
 
@@ -31,12 +31,15 @@ print(f"Config:  {config}")
 print(f"Epochs:  {epochs}")
 print(f"Save:    {save}")
 
+env = os.environ.copy()
+env["PYTHONPATH"] = BASE
+
 cmd = [
-    "python", f"{BASE}/tools/train.py",
+    "python", "tools/train.py",
     "--config-file", config,
     "--options", f"save_path={save}", f"epoch={epochs}",
     f"data.train.datasets.0.data_root={BASE}/data/s3dis",
     "enable_wandb=False",
 ]
 print(f"Running: {' '.join(cmd)}")
-subprocess.run(cmd, cwd=BASE)
+subprocess.run(cmd, cwd=BASE, env=env)
