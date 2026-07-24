@@ -1,4 +1,4 @@
-"""Minimal cosine masking smoke test config (S3DIS, 10 epoch)."""
+﻿"""Minimal cosine masking smoke test config (S3DIS, 10 epoch)."""
 _base_ = ["../sonata/pretrain-sonata-v1m2-0-uni-teacher-head.py"]
 
 epoch = 10
@@ -46,7 +46,7 @@ model = dict(
 
 data = dict(train=dict(type="ConcatDataset", datasets=[
     dict(type="S3DISDataset", split=["Area_1"], data_root="data/s3dis",
-         transform=transform, test_mode=False, loop=1)
+         test_mode=False, loop=1)
 ]))
 
 hooks = [
@@ -57,3 +57,4 @@ hooks = [
     dict(type="InformationWriter"),
     dict(type="CheckpointSaver", save_freq=5),
 ]
+
