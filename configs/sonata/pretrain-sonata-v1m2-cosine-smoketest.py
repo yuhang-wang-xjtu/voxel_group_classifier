@@ -46,7 +46,7 @@ model = dict(
 
 data = dict(train=dict(type="ConcatDataset", datasets=[
     dict(type="S3DISDataset", split=["Area_1"], data_root="data/s3dis",
-         transform="${transform}", test_mode=False, loop=1)
+         transform=transform, test_mode=False, loop=1)
 ]))
 
 hooks = [
