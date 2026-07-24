@@ -1,7 +1,7 @@
 import logging
 
 
-def get_root_logger(logger_name="pointcept", log_level=logging.INFO, log_file=None):
+def get_root_logger(logger_name="pointcept", log_level=logging.INFO, log_file=None, file_mode="a"):
     logger = logging.getLogger(logger_name)
     if not logger.handlers:
         logger.setLevel(log_level)
@@ -12,7 +12,7 @@ def get_root_logger(logger_name="pointcept", log_level=logging.INFO, log_file=No
         handler.setFormatter(formatter)
         logger.addHandler(handler)
         if log_file is not None:
-            file_handler = logging.FileHandler(log_file)
+            file_handler = logging.FileHandler(log_file, mode=file_mode)
             file_handler.setFormatter(formatter)
             logger.addHandler(file_handler)
     return logger
