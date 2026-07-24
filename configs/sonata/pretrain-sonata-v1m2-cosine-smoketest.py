@@ -2,6 +2,7 @@
 _base_ = ["../sonata/pretrain-sonata-v1m2-0-uni-teacher-head.py"]
 
 epoch = 10
+eval_epoch = 10
 batch_size = 8
 num_worker = 4
 evaluate = False
