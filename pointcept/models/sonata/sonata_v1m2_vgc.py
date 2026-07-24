@@ -116,7 +116,7 @@ class SonataVGC(PointModel):
         vgc_diversity_decay=0.9,
         vgc_diversity_max_penalty=0.5,
     ):
-        super(Sonata, self).__init__()
+        super(SonataVGC, self).__init__()
         self.masking_mode = masking_mode
         self.mask_loss_weight = mask_loss_weight
         self.roll_mask_loss_weight = roll_mask_loss_weight
