@@ -1,4 +1,4 @@
-﻿"""Minimal cosine masking smoke test config (S3DIS, 10 epoch)."""
+"""Minimal cosine masking smoke test config (S3DIS, 10 epoch)."""
 _base_ = ["../sonata/pretrain-sonata-v1m2-0-uni-teacher-head.py"]
 
 epoch = 10
