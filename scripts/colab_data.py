@@ -29,7 +29,14 @@ print(f"Found {len(h5_files)} HDF5 files.")
 for h5_path in h5_files:
     fname = os.path.basename(h5_path).replace(".h5", "")
     area_idx = int(fname.split("_")[-1])
-    room_dir = os.path.join(OUT_ROOT, f"Area_{area_idx}", fname)
+
+    # Only use HDF5 file 0 → Area_1, rest skip (smoke test)
+    if area_idx != 0:
+        continue
+
+    area = "Area_1"
+    # Use the HDF5 filename as room name
+    room_dir = os.path.join(OUT_ROOT, area, fname)
     if os.path.exists(os.path.join(room_dir, "normal.npy")):
         continue  # already converted
 
