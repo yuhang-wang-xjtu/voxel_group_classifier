@@ -44,5 +44,3 @@ dependencies:
     - torch_geometric
     - spconv-cu124
     - peft
-    - ./libs/pointops
-    - ./libs/pointgroup_ops
